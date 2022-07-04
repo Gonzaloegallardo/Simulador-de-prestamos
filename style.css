@@ -1,8 +1,27 @@
-.simuladorcontent{
-    color: rgb(0, 0, 0);
+*{
+    background-color:#FCFCD4;
 }
-.formprestamo{
-    color: rgb(204, 78, 29);
-    width: 100%;
-    height: 20em;
+.formulario{
+    text-align: center;
 }
+
+.form-select{
+    color: black !important;
+    background-color: #C1D9BA !important;
+    width: 50% !important;
+    text-align: center;
+    align-content: center;
+    position: relative;
+    left: 30rem;
+}
+#select2{
+    position: relative;
+    top: 1rem;
+}
+.form-control{
+    width: 50% !important;
+    position: relative;
+    left: 30rem;
+
+}
+
