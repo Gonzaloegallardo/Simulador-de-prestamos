@@ -1,26 +1,35 @@
 let limite_prestamo = 0
-
+function informar_usuario (){
+    alert("tu limite es de: " + limite_prestamo)
+}
 
 ocupacion = prompt("ingresa tu ocupacion")
 
 if(ocupacion == "estudiante"){
-    alert("tu limite es de $20.000");
+    limite_prestamo = 20000;
+    informar_usuario();
 }
 else if(ocupacion == "jubilado"){
-    alert("tu limite es de $30.000");
+    limite_prestamo = 30000
+    informar_usuario();
 }
 else if(ocupacion == "empleado"){
-    alert("tu limite es de $60.000");
+    limite_prestamo = 60000
+    informar_usuario();
 }
 else if(ocupacion == "desocupado"){
-    alert("tu limite es de $10.000");
+    limite_prestamo = 10000
+    informar_usuario();
 }
 else if(ocupacion == "empresario"){
-    alert("tu limite es de 100.000");
+    limite_prestamo = 100000
+    informar_usuario();
 }
 else if(ocupacion == "monotributista"){
-    alert("tu limite es de $40.000");
+    limite_prestamo = 40000;
+    informar_usuario();
 }
 else{alert("error");
+    
 }
 numero = parseInt(prompt("ingresa el monto deseado"));
