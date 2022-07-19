@@ -3,9 +3,19 @@
 }
 .formulario{
     text-align: center;
-}
+    align-items: center;
 
-.form-select{
+    
+}
+.form1{
+    border: 2px solid black;
+    border-block-start: #C1D9BA;
+    width: 60%;
+
+
+    
+}
+.opciones{
     color: black !important;
     background-color: #C1D9BA !important;
     width: 50% !important;
