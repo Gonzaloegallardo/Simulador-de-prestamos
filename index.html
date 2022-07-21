@@ -16,53 +16,71 @@
 <section class="formulario">
     <div class="form1">
     <h1>Simulador de préstamos</h1>
-<h2> Seleccioná tu ocupacion</h2>
-<li> 
-<button id="empleado">empleado</button>
-</li>
-<li> 
-    <button id="desempleado">desempleado</button>
-    </li>
-    <li> 
-        <button id="estudiante">estudiante</button>
-        </li>
-        <li> 
-            <button id="monotributista">monotributista</button>
-            </li>
-            <li> 
-                <button id="jubilado">jubilado</button>
-                </li>
-                <li> 
-                    <button id="empresario">empresario</button>
-                    </li>
-                </div>
-    <div>
-    <h3 id="monto_alert">ingrese el monto</h3>
-    <input type="dinero" placeholder="maximo: $100.000" id="dinero">
-    <h2 id="monto_maximo">monto maximo: 100.000</h2>
-</div>
+    <select class="form-select" id="form" aria-label="Default select example">
+        <option selected>seleccioná tu ocupacion</option>
+        <option value="empleado">empleado</option>
+        <option value="desempleado">desempleado</option>
+        <option value="estudiante">estudiante</option>
+        <option value="jubilado">jubilado</option>
+        <option value="monotributista">monotributista</option>
+        <option value="empresario">empresario</option>
+      </select>
+      <button onclick="enviar()">enviar</button>
+      <div>
+     
+        <h2 id="monto_maximo"></h2>
+        <h3 id="monto_alert">ingrese el monto</h3>
+        <span>$10.000
+            <input type="checkbox">
+        </span>
+        <span>$20.000
+            <input type="checkbox">
+        </span>
+        <span>$30.000
+            <input type="checkbox">
+        </span>
+        <span>$40.000
+            <input type="checkbox">
+        </span>
+        <span>$50.000
+            <input type="checkbox"> 
+        </span>
+        <span>$60.000
+            <input type="checkbox">
+        </span>
+        <span>$70.000
+            <input type="checkbox">
+        </span>
+        <span>$80.000
+            <input type="checkbox">
+        </span>
+        <span>$90.000
+            <input type="checkbox">
+        </span>
+        <span>$100.000
+            <input type="checkbox">
+        </span>
+    </div>
+
 <div>
-<select class="form-select" id="select2" aria-label="Default select example">
+<select class="form-select" id="select2" onChange="seleccionar_cuota();">
     <option selected>Seleccioná el plazo</option>
-    <option value="1">1 cuota</option>
-    <option value="2">3 cuotas</option>
-    <option value="3">6 cuotas</option>
-    <option value="4">9 cuotas</option>
-    <option value="5">12 cuotas</option>
-    <option value="6">15 cuotas</option>
-    <option value="7">18 cuotas</option>
-    <option value="8">21 cuotas</option>
-    <option value="9">24 cuotas</option>
-    <option value="10">27 cuotas</option>
-    <option value="11">30 cuotas</option>
-    <option value="12">33 cuotas</option>
-    <option value="13">36 cuotas</option>
-    <option value="14">39 cuotas</option>
-    <option value="15">42 cuotas</option>
-    <option value="16">45 cuotas</option>
-    <option value="17">48 cuotas</option>
+    <option value="24 cuotas">24 cuotas</option>
+    <option value="27 cuotas">27 cuotas</option>
+    <option value="30 cuotas">30 cuotas</option>
+    <option value="33 cuotas">33 cuotas</option>
+    <option value="36 cuotas">36 cuotas</option>
+    <option value="39 cuotas">39 cuotas</option>
+    <option value="42 cuotas">42 cuotas</option>
+    <option value="45 cuotas">45 cuotas</option>
+    <option value="48 cuotas">48 cuotas</option>
+</select>
+
 </div>
 </section>
+<div>
+    <span id="cuota_seleccionada"></span>
+</div>
 
     <script src="simulador.js"></script>
 </body>

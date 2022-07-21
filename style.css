@@ -7,14 +7,7 @@
 
     
 }
-.form1{
-    border: 2px solid black;
-    border-block-start: #C1D9BA;
-    width: 60%;
 
-
-    
-}
 .opciones{
     color: black !important;
     background-color: #C1D9BA !important;
@@ -33,5 +26,11 @@
     position: relative;
     left: 30rem;
 
+}
+#cuota_seleccionada{
+color: blue;
+font-size: 20px;
+position: relative;
+top: 20px;
 }
 
