@@ -12,75 +12,58 @@
 </head>
 
 <body>
+<section>
+<form>
+<label for="">ingresa tu nombre</label>
+<input type="name" id="nombre" placeholder="nombre">
+<label for="">ingresa tu apellido</label>
+<input type="name" id="apellido" placeholder="apellido">
+<button id="crear_cuenta">crear cuenta</button>
 
-<section class="formulario">
-    <div class="form1">
-    <h1>Simulador de préstamos</h1>
-    <select class="form-select" id="form" aria-label="Default select example">
-        <option selected>seleccioná tu ocupacion</option>
-        <option value="empleado">empleado</option>
-        <option value="desempleado">desempleado</option>
-        <option value="estudiante">estudiante</option>
-        <option value="jubilado">jubilado</option>
-        <option value="monotributista">monotributista</option>
-        <option value="empresario">empresario</option>
-      </select>
-      <button onclick="enviar()">enviar</button>
-      <div>
-     
-        <h2 id="monto_maximo"></h2>
-        <h3 id="monto_alert">ingrese el monto</h3>
-        <span>$10.000
-            <input type="checkbox">
-        </span>
-        <span>$20.000
-            <input type="checkbox">
-        </span>
-        <span>$30.000
-            <input type="checkbox">
-        </span>
-        <span>$40.000
-            <input type="checkbox">
-        </span>
-        <span>$50.000
-            <input type="checkbox"> 
-        </span>
-        <span>$60.000
-            <input type="checkbox">
-        </span>
-        <span>$70.000
-            <input type="checkbox">
-        </span>
-        <span>$80.000
-            <input type="checkbox">
-        </span>
-        <span>$90.000
-            <input type="checkbox">
-        </span>
-        <span>$100.000
-            <input type="checkbox">
-        </span>
-    </div>
 
-<div>
-<select class="form-select" id="select2" onChange="seleccionar_cuota();">
-    <option selected>Seleccioná el plazo</option>
-    <option value="24 cuotas">24 cuotas</option>
-    <option value="27 cuotas">27 cuotas</option>
-    <option value="30 cuotas">30 cuotas</option>
-    <option value="33 cuotas">33 cuotas</option>
-    <option value="36 cuotas">36 cuotas</option>
-    <option value="39 cuotas">39 cuotas</option>
-    <option value="42 cuotas">42 cuotas</option>
-    <option value="45 cuotas">45 cuotas</option>
-    <option value="48 cuotas">48 cuotas</option>
-</select>
+</form>
 
-</div>
 </section>
-<div>
-    <span id="cuota_seleccionada"></span>
-</div>
+    <section class="formulario">
+        <div class="form1">
+            <h1>Simulador de préstamos</h1>
+            <select class="form-select" id="form" aria-label="Default select example">
+                <option selected>seleccioná tu ocupacion</option>
+                <option value="empleado">empleado</option>
+                <option value="desempleado">desempleado</option>
+                <option value="estudiante">estudiante</option>
+                <option value="jubilado">jubilado</option>
+                <option value="monotributista">monotributista</option>
+                <option value="empresario">empresario</option>
+            </select>
+            <button id="btn_enviar">enviar</button>
+            
+
+                <h2 id="monto_maximo"></h2>
+
+                
+
+
+            <div>
+                <select class="form-select" id="select2">
+                    <option selected>Seleccioná el plazo</option>
+                    <option value="24 cuotas">24 cuotas</option>
+                    <option value="27 cuotas">27 cuotas</option>
+                    <option value="30 cuotas">30 cuotas</option>
+                    <option value="33 cuotas">33 cuotas</option>
+                    <option value="36 cuotas">36 cuotas</option>
+                    <option value="39 cuotas">39 cuotas</option>
+                    <option value="42 cuotas">42 cuotas</option>
+                    <option value="45 cuotas">45 cuotas</option>
+                    <option value="48 cuotas">48 cuotas</option>
+                </select>
+            
+            </div>
+    </section>
+    <div>
+        <span id="cuota_seleccionada"></span>
+        <button id="calcular">calcular</button>
+    </div>
 
     <script src="simulador.js"></script>
 </body>
