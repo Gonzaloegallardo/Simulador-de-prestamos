@@ -1,15 +1,25 @@
+
 let lista_usuario = []
+
+
+
 function set_data(){
     let nombre_usuario = document.getElementById("nombre");
     let apellido_usuario = document.getElementById("apellido");
     let usuario = {"nombre":nombre_usuario.value ,"apellido":apellido_usuario.value};
+    
+    let usuario_json = JSON.stringify(usuario);
+    console.log(usuario_json);
     lista_usuario.push(usuario);
-
-    let json_usuario = JSON.stringify(lista_usuario);
-    console.log(lista_usuario)
+    let arreglo_json = JSON.stringify(lista_usuario)
+    
+    localStorage.setItem("usuarios: ",arreglo_json)
 }
-let crear_cuenta = document.getElementById("crear_cuenta");
-crear_cuenta.addEventListener("click",set_data);
+let crear = document.getElementById("crear_cuenta");
+crear.addEventListener("click", function(event){
+    event.preventDefault();
+    set_data();
+});
 
 
 
