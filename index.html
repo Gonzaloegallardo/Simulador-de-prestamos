@@ -12,59 +12,41 @@
 </head>
 
 <body>
-<section >
-<form>
-<label for="">ingresa tu nombre</label>
-<input type="text" id="nombre" placeholder="nombre">
-<label for="">ingresa tu apellido</label>
-<input type="text" id="apellido" placeholder="apellido">
-<button id="crear_cuenta">crear cuenta</button>
-
-
-</form>
-
-</section>
-    <section class="formulario">
-        <div class="form1">
-            <h1>Simulador de préstamos</h1>
-            <select class="form-select" id="form" aria-label="Default select example">
-                <option selected>seleccioná tu ocupacion</option>
-                <option value="empleado">empleado</option>
-                <option value="desempleado">desempleado</option>
-                <option value="estudiante">estudiante</option>
-                <option value="jubilado">jubilado</option>
-                <option value="monotributista">monotributista</option>
-                <option value="empresario">empresario</option>
-            </select>
-            <button id="btn_enviar">enviar</button>
-            
-
-                <h2 id="monto_maximo"></h2>
-
-                
-
-
-            <div>
-                <select class="form-select" id="select2">
-                    <option selected>Seleccioná el plazo</option>
-                    <option value="24 cuotas">24 cuotas</option>
-                    <option value="27 cuotas">27 cuotas</option>
-                    <option value="30 cuotas">30 cuotas</option>
-                    <option value="33 cuotas">33 cuotas</option>
-                    <option value="36 cuotas">36 cuotas</option>
-                    <option value="39 cuotas">39 cuotas</option>
-                    <option value="42 cuotas">42 cuotas</option>
-                    <option value="45 cuotas">45 cuotas</option>
-                    <option value="48 cuotas">48 cuotas</option>
-                </select>
-            
+    <div class="container"></div>
+    <div class="row mt-3"></div>
+    <div class="col-6">
+        <h2>Calcular amortizacion metodo frances</h2>
+        <div class="form-group">
+            <label for="tiempo">monto</label>
+            <input type="text" class="form-control" id="monto" placeholder="ingresa monto">
+        </div>
+        <div class="form-group">
+            <label for="tiempo">tiempo</label>
+            <input type="text" class="form-control" id="tiempo" placeholder="ingresa tiempo">
+            <div class="form-group">
+                <label for="tiempo">interes</label>
+                <input type="text" class="form-control" id="interes" placeholder="ingresa interes">
             </div>
-    </section>
-    <div>
-        <span id="cuota_seleccionada"></span>
-        <button id="calcular">calcular</button>
-    </div>
+            <button type="submit" class="btn btn-primary" id="btn_calcular">calcular</button>
+        </div>
+        <div class="col-6">
+            <table id="lista-tabla" class="table">
+                <thead>
+                    <tr>
+                        <th>fecha</th>
+                        <th>cuota</th>
+                        <th>capital</th>
+                        <th>interes</th>
+                        <th>saldo</th>
 
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+<script src="moment.js"></script>
     <script src="simulador.js"></script>
 </body>
 

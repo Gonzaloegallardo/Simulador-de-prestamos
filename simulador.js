@@ -1,64 +1,47 @@
+let monto = document.getElementById("monto");
+let tiempo = document.getElementById("tiempo");
+let interes = document.getElementById("interes");
+let btn_calcular = document.getElementById("btn_calcular");
+let llenar_tabla = document.querySelector("#lista-tabla tbody")
 
-let lista_usuario = []
-
-
-
-function set_data(){
-    let nombre_usuario = document.getElementById("nombre");
-    let apellido_usuario = document.getElementById("apellido");
-    let usuario = {"nombre":nombre_usuario.value ,"apellido":apellido_usuario.value};
-    
-    let usuario_json = JSON.stringify(usuario);
-    console.log(usuario_json);
-    lista_usuario.push(usuario);
-    let arreglo_json = JSON.stringify(lista_usuario)
-    
-    localStorage.setItem("usuarios: ",arreglo_json)
-}
-let crear = document.getElementById("crear_cuenta");
-crear.addEventListener("click", function(event){
-    event.preventDefault();
-    set_data();
+btn_calcular.addEventListener("click", () => {
+    calcular_cuota(monto.value, interes.value, tiempo.value);
 });
 
 
-
-let btn_enviar =document.getElementById("btn_enviar");
-btn_enviar.addEventListener("click", ()=>{
-    enviar();
-
-});
-function enviar() {
-
-    if (document.getElementById("form").value == "empleado") {
-        
-
-        
-        document.getElementById("monto_maximo").innerText = `tu monto maximo es de $80.000`
-        
-
-        
-
-    } else if (document.getElementById("form").value == "desempleado") {
-        document.getElementById("monto_maximo").innerText = `tu monto maximo es de $30.000`
-    } else if (document.getElementById("form").value == "jubilado") {
-        document.getElementById("monto_maximo").innerText = `tu monto maximo es de $50.000`
-    } else if (document.getElementById("form").value == "estudiante") {
-        document.getElementById("monto_maximo").innerText = `tu monto maximo es de $40.000`
-    } else if (document.getElementById("form").value == "monotributista") {
-        document.getElementById("monto_maximo").innerText = `tu monto maximo es de $70.000`
-    } else if (document.getElementById("form").value == "empresario") {
-        document.getElementById("monto_maximo").innerText = `tu monto maximo es de $100.000`
-    }
+function calcular_cuota(monto, interes, tiempo){
+    
+    while(llenar_tabla.firstChild){
+    llenar_tabla.removeChild(llenar_tabla.firstChild);
 }
 
-select2.addEventListener("click", ()=>{
-    seleccionar_cuota()
-})
-function seleccionar_cuota() {
-    let select2 = document.getElementById("select2");
-    let cuota = select2.value;
+
+let fechas = [];
+let fecha_actual = Date.now();
+let mes_actual = moment(fecha_actual);
+mes_actual.add(1, "month");
+let pagoInteres = 0, pagoCapital = 0; cuota = 0;
+cuota = monto *(Math.pow(1+interes/100, tiempo)*interes/100)/(Math.pow(1+interes/100, tiempo)-1);
 
 
-    document.getElementById("cuota_seleccionada").innerText = `usted a seleccionado ${cuota}`;
+for(let i = 1; i <= tiempo; i++) {
+
+    pagoInteres = parseFloat(monto*(interes/100));
+    pagoCapital = cuota - pagoInteres;
+    monto = parseFloat(monto-pagoCapital);
+
+
+    fechas[i] = mes_actual.format('DD-MM-YYYY');
+    mes_actual.add(1, "month");
+
+let row = document.createElement("tr");
+row.innerHTML = `
+<td>${fechas[i]}</td>
+<td>${cuota.toFixed(2)}</td>
+<td>${pagoCapital.toFixed(2)}</td>
+<td>${pagoInteres.toFixed(2)}</td>
+<td>${monto.toFixed(2)}</td>
+`;
+llenar_tabla.appendChild(row)
+}
 }
