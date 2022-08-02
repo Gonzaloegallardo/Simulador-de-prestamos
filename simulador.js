@@ -6,6 +6,8 @@ let llenar_tabla = document.querySelector("#lista-tabla tbody")
 
 btn_calcular.addEventListener("click", () => {
     calcular_cuota(monto.value, interes.value, tiempo.value);
+    let fallo = (calcular_cuota.incluides(String) ? true : false
+    fallo ? alert("error") : alert("bien")
 });
 
 
