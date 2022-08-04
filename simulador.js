@@ -18,6 +18,7 @@ function calcular_cuota(monto, interes, tiempo){
 }
 
 //obteniendo fechas mediante la libreria moment.js//
+//arreglo de fechas para que la variable mes_Actual vaya agregando elementos al mismo//
 let fechas = [];
 let fecha_actual = Date.now();
 let mes_actual = moment(fecha_actual);
