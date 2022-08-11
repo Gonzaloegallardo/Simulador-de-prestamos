@@ -1,3 +1,30 @@
+//formulario de acceso//
+let lista_usuarios = [];
+function set_Data(){
+let user = document.getElementById("username").value
+let contraseña = document.getElementById("password").value
+let usuario = {user, contraseña }
+let usuario_json = JSON.stringify(usuario)
+lista_usuarios.push(usuario_json)
+
+let sin_duplicados = lista_usuarios.filter((item,index)=>{
+    return lista_usuarios.indexOf(item)===index});
+    localStorage.setItem("usuario",sin_duplicados)
+}
+
+let boton_registro = document.getElementById("boton_registro")
+
+boton_registro.addEventListener("click", function (event){
+event.preventDefault();
+
+set_Data()
+
+});
+//formulario de inicio de sesion//
+for(let i = 0 ; i < localStorage.length ; i++){
+    
+}
+
 //obteniendo elementos// 
 let monto = document.getElementById("monto");
 let tiempo = document.getElementById("tiempo");
@@ -18,6 +45,7 @@ function calcular_cuota(monto, interes, tiempo){
 }
 
 //obteniendo fechas mediante la libreria moment.js//
+//arreglo de fechas para que la variable mes_Actual vaya agregando elementos al mismo//
 let fechas = [];
 let fecha_actual = Date.now();
 let mes_actual = moment(fecha_actual);
@@ -48,3 +76,28 @@ row.innerHTML = `
 llenar_tabla.appendChild(row)
 }
 }
+let climaContainer = document.getElementById("clima-container")
+let apiClima = `https://api.openweathermap.org/data/2.5/weather?q=Comodoro rivadavia&units=metric&appid=4b56f215333470bc78211cf09c98602e`
+
+const pedirData = async () => {
+	let clima = []
+	let soleado = []
+let variableFetch = await fetch(apiClima)
+let dataFetch = await variableFetch.json()
+clima.push(dataFetch.main.temp)
+soleado.push(dataFetch.name)
+
+console.log(dataFetch)
+console.log(clima)
+console.log(soleado)
+
+clima.forEach(dataFetch => {
+	const p = document.createElement("p")
+
+	p.innerHTML = `<p>La Temperatura es: <span class="span"> &#127777 </span> ${JSON.stringify(clima)}° en la ciudad de <span class="span"> &#128205 </span> ${JSON.stringify(soleado)} </p>`
+
+	climaContainer.appendChild(p)
+
+});
+}
+pedirData()
