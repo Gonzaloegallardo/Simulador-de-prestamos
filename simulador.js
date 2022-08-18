@@ -1,9 +1,12 @@
+
 //formulario de acceso//
 let lista_usuarios = [];
 function set_Data(){
 let user = document.getElementById("username").value
 let contraseña = document.getElementById("password").value
 let usuario = {user, contraseña }
+let lista_usuarios_array = JSON.parse(localStorage.getItem("usuario"));
+
 let usuario_json = JSON.stringify(usuario)
 lista_usuarios.push(usuario_json)
 
@@ -20,10 +23,7 @@ event.preventDefault();
 set_Data()
 
 });
-//formulario de inicio de sesion//
-for(let i = 0 ; i < localStorage.length ; i++){
-    
-}
+
 
 //obteniendo elementos// 
 let monto = document.getElementById("monto");
@@ -31,12 +31,45 @@ let tiempo = document.getElementById("tiempo");
 let interes = document.getElementById("interes");
 let btn_calcular = document.getElementById("btn_calcular");
 let llenar_tabla = document.querySelector("#lista-tabla tbody")
+let llenar_lista = document.getElementById("lista_montos")
 
 btn_calcular.addEventListener("click", () => {
     calcular_cuota(monto.value, interes.value, tiempo.value);
-    
+    set_montos();
 });
+let lista_montos = [];
 
+
+function set_montos(){
+    let monto = document.getElementById("monto").value
+    let monto_JSON = JSON.stringify(monto)
+    lista_montos.push(monto_JSON)
+    let sin_duplicar = lista_montos.filter((item,index)=>{
+        return lista_montos.indexOf(item)===index});
+        localStorage.setItem("monto",sin_duplicar)
+}
+function appen(){
+    while(llenar_lista.firstChild){
+        llenar_lista.removeChild(llenar_lista.firstChild);
+    }
+}
+function get_montos(){
+    let recuperando_JSON = localStorage.getItem("monto");
+    console.log(recuperando_JSON);
+    let listado_montos = document.createElement("tr")
+    listado_montos.innerHTML = `
+    <td>${recuperando_JSON}</td>
+    `;
+    llenar_lista.appendChild(listado_montos)
+    }
+
+let montos_ingresados = document.getElementById("obtener_montos")
+montos_ingresados.addEventListener("click",function (event){
+    event.preventDefault();
+    get_montos()
+
+
+});
 
 function calcular_cuota(monto, interes, tiempo){
     //metodo para que una vez que se ingresen datos nuevos, se renueve la lista.//
@@ -100,4 +133,3 @@ clima.forEach(dataFetch => {
 
 });
 }
-pedirData()
