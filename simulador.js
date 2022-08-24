@@ -54,7 +54,7 @@ function get_montos() {
     console.log(recuperando_JSON);
     let listado_montos = document.createElement("tr");
     listado_montos.innerHTML = `
-    <td>${recuperando_JSON}</td>
+    <td class="lista_storage">${recuperando_JSON}</td>
     `;
     llenar_lista.appendChild(listado_montos);
 }
@@ -105,6 +105,7 @@ function calcular_cuota(monto, interes, tiempo) {
         llenar_tabla.appendChild(row);
     }
 }
+//api de dolar//
 const $compra = document.querySelector("#compra"),
     $venta = document.querySelector("#venta");
 
