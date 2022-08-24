@@ -1,23 +1,4 @@
-//formulario de acceso//
-let lista_usuarios = [];
 
-function set_Data() {
-    let user = document.getElementById("username").value;
-    let contraseña = document.getElementById("password").value;
-    let usuario = {
-        user,
-        contraseña
-    };
-    let lista_usuarios_array = JSON.parse(localStorage.getItem("usuario"));
-
-    let usuario_json = JSON.stringify(usuario);
-    lista_usuarios.push(usuario_json);
-
-    let sin_duplicados = lista_usuarios.filter((item, index) => {
-        return lista_usuarios.indexOf(item) === index;
-    });
-    localStorage.setItem("usuario", sin_duplicados);
-}
 //obteniendo elementos//
 let monto = document.getElementById("monto");
 let tiempo = document.getElementById("tiempo");
@@ -26,13 +7,15 @@ let btn_calcular = document.getElementById("btn_calcular");
 let llenar_tabla = document.querySelector("#lista-tabla tbody");
 let llenar_lista = document.getElementById("lista_montos");
 
+//evento que ingresa los datos//
 btn_calcular.addEventListener("click", function (event){
     event.preventDefault();
     calcular_cuota(monto.value, interes.value, tiempo.value);
     set_montos();
 });
+//arreglo que guarda los montos ingresados en localStorage//
 let lista_montos = [];
-
+//funcion que envia los datos a localStorage//
 function set_montos() {
     let monto = document.getElementById("monto").value;
     let monto_JSON = JSON.stringify(monto);
@@ -48,7 +31,7 @@ function appen() {
         llenar_lista.removeChild(llenar_lista.firstChild);
     }
 }
-
+//funcion que devuelve los datos del Storage para crear una lista con los elementos//
 function get_montos() {
     let recuperando_JSON = localStorage.getItem("monto");
     console.log(recuperando_JSON);
@@ -58,7 +41,7 @@ function get_montos() {
     `;
     llenar_lista.appendChild(listado_montos);
 }
-
+//evento del boton que devuelve los montos//
 let montos_ingresados = document.getElementById("obtener_montos");
 montos_ingresados.addEventListener("click", function (event) {
     event.preventDefault();
